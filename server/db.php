@@ -13,7 +13,7 @@ class DB{
     //私有构造方法
     private function __construct(){
         $this->host = '192.168.10.10';
-        $this->port = '33060';
+        $this->port = '3306';
         $this->username = 'homestead';
         $this->password = 'secret';
         $this->db = 'queue';
