@@ -1,7 +1,7 @@
 <?php
 
 //配送系统处理队列中的订单并进行标记
-include '../server/db.php';
+include ('db.php');
 
 $db = DB::getIntance();
 
@@ -21,12 +21,12 @@ if($res_lock){
         'status'   => 1,
         'updated_at'  => date('Y-m-d H:i:s',time())
     );
-    $res_last = $db->update('order_queue',$success,$where);
+    $res_last = $db->update('order_queue',$success,['status'=>2]);
     if($res_last){
-        echo 'success'.$res_last;
+        echo 'success'.$res_last.' ';
     }else{
         echo 'error';
     }
 }else{
-    echo 'all ok';
+    echo 'all_ok ';
 }
