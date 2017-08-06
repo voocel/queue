@@ -1,32 +1,39 @@
-1.°²×°rabbitmq
+### å®‰è£…rabbitmqæœåŠ¡
+```
 yum install rabbitmq-server
 service rabbitmq-server start
-
-ÉèÖÃ¿ª»úÆô¶¯
+```
+### è®¾ç½®å¼€æœºå¯åŠ¨
+```
 chkconfig rabbitmq-server on
-
-ÉèÖÃÅäÖÃÎÄ¼ş
+```
+### è®¾ç½®é…ç½®æ–‡ä»¶
+```
 cd /etc/rabbitmq
 cp /usr/share/doc/rabbitmq-server-3.4.1/rabbitmq.config.example /etc/rabbitmq/
- 
 mv rabbitmq.config.example rabbitmq.config
-¿ªÆôÓÃ»§Ô¶³Ì·ÃÎÊ
+```
+### å¼€å¯ç”¨æˆ·è¿œç¨‹è®¿é—®
+```
 vi /etc/rabbitmq/rabbitmq.config
- 
-È¥µôloopback_user {},Ç°µÄ °Ù·ÖºÅ
-#×¢ÒâÒªÈ¥µôºóÃæµÄ¶ººÅ¡£
- 
-¿ªÆôweb½çÃæ¹ÜÀí¹¤¾ß
+å»æ‰loopback_user {},å‰çš„ ç™¾åˆ†å·
+#æ³¨æ„è¦å»æ‰åé¢çš„é€—å·ã€‚
+```
+### å¼€å¯webç•Œé¢ç®¡ç†å·¥å…·
+```
 rabbitmq-plugins enable rabbitmq_management
 service rabbitmq-server restart
-·À»ğÇ½¿ª·Å15672¶Ë¿Ú
+```
+### é˜²ç«å¢™å¼€æ”¾15672ç«¯å£
+```
 /sbin/iptables -I INPUT -p tcp --dport 15672 -j ACCEPT
 /etc/rc.d/init.d/iptables save
+```
 
-------------------------------------------------------------
-°²×°php-amqplibÀ©Õ¹
+## å®‰è£…php-amqplibæ‰©å±•
+```
 yum install php-bcmath php-mbstring  php-dom php-curl
 git  clone https://github.com/php-amqplib/php-amqplib.git
 cd php-amqplib
 composer update
-
+```
